@@ -1,0 +1,1106 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&family=Rye&display=swap');
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: 'Montserrat', sans-serif;
+
+    color: #2b170b;
+
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(255,255,255,.22),
+            transparent 25%
+        ),
+        repeating-linear-gradient(
+            0deg,
+            rgba(74,39,13,.08) 0px,
+            rgba(74,39,13,.08) 2px,
+            transparent 2px,
+            transparent 6px
+        ),
+        linear-gradient(
+            135deg,
+            #c7a46d,
+            #e3c895,
+            #b98b52
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   MARCO DE LA PÁGINA
+========================================================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    border: 6px solid #251006;
+
+    pointer-events: none;
+
+    z-index: 9999;
+}
+
+
+/* =========================================================
+   CONTENEDOR
+========================================================= */
+
+.menu-container {
+    width: min(1100px, calc(100% - 28px));
+
+    margin: 28px auto 45px;
+
+    background: #ead3a8;
+
+    border: 4px solid #321609;
+
+    box-shadow:
+        0 0 0 7px rgba(104,58,18,.25),
+        0 20px 55px rgba(38,18,5,.45);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   HEADER WESTERN
+========================================================= */
+
+.western-header {
+    position: relative;
+
+    min-height: 370px;
+
+    padding: 45px 20px 50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    color: #f7e7c4;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(169,106,30,.25),
+            transparent 34%
+        ),
+        linear-gradient(
+            135deg,
+            #130804,
+            #321308 48%,
+            #170904
+        );
+
+    border-bottom: 5px solid #bd852d;
+
+    overflow: hidden;
+}
+
+
+/* textura del header */
+
+.western-header::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,.018) 0,
+            rgba(255,255,255,.018) 1px,
+            transparent 1px,
+            transparent 5px
+        );
+
+    pointer-events: none;
+}
+
+
+/* estrella decorativa grande */
+
+.western-header::after {
+    content: "★";
+
+    position: absolute;
+
+    right: 6%;
+
+    bottom: -45px;
+
+    font-size: 190px;
+
+    color: rgba(211,158,62,.08);
+
+    transform: rotate(-15deg);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   DECORACIÓN
+========================================================= */
+
+.western-decoration {
+    position: relative;
+
+    z-index: 2;
+
+    font-family: Georgia, serif;
+
+    color: #d7a64a;
+
+    letter-spacing: 8px;
+}
+
+.top-decoration {
+    margin-bottom: 15px;
+
+    font-size: 20px;
+}
+
+.bottom-decoration {
+    margin-top: 22px;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+    position: relative;
+
+    z-index: 3;
+
+    display: block;
+
+    width: 235px;
+
+    max-width: 70%;
+
+    max-height: 145px;
+
+    object-fit: contain;
+
+    margin-bottom: 12px;
+
+    filter:
+        drop-shadow(0 8px 8px rgba(0,0,0,.6));
+}
+
+
+/* =========================================================
+   LÍNEA DE MARCA
+========================================================= */
+
+.brand-line {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(600px, 90%);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 12px;
+}
+
+.brand-line span {
+    height: 2px;
+
+    flex: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #c58d35
+        );
+}
+
+.brand-line span:last-child {
+    background:
+        linear-gradient(
+            90deg,
+            #c58d35,
+            transparent
+        );
+}
+
+.brand-line b {
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 15px;
+
+    letter-spacing: 5px;
+
+    color: #d6a84e;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.western-header h1 {
+    position: relative;
+
+    z-index: 2;
+
+    font-family: 'Rye', Georgia, serif;
+
+    font-size: clamp(48px, 8vw, 82px);
+
+    line-height: .95;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    color: #f4d58d;
+
+    text-shadow:
+        3px 3px 0 #6a2e0e,
+        6px 6px 0 #1b0903,
+        0 12px 22px rgba(0,0,0,.4);
+}
+
+
+/* =========================================================
+   SLOGAN
+========================================================= */
+
+.slogan {
+    position: relative;
+
+    z-index: 2;
+
+    margin-top: 20px;
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 22px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    color: #e2b968;
+}
+
+
+/* =========================================================
+   SECCIONES
+========================================================= */
+
+.menu-section {
+    position: relative;
+
+    padding: 55px clamp(16px, 6vw, 70px) 65px;
+
+    background:
+        linear-gradient(
+            rgba(250,238,213,.94),
+            rgba(228,202,159,.94)
+        );
+
+    border-bottom: 3px solid #704019;
+}
+
+.menu-section:nth-of-type(even) {
+    background:
+        linear-gradient(
+            rgba(239,217,180,.96),
+            rgba(212,178,126,.96)
+        );
+}
+
+
+/* decoración lateral */
+
+.menu-section::before {
+    content: "✦";
+
+    position: absolute;
+
+    top: 24px;
+
+    left: 25px;
+
+    color: rgba(112,62,20,.35);
+
+    font-size: 25px;
+}
+
+.menu-section::after {
+    content: "✦";
+
+    position: absolute;
+
+    top: 24px;
+
+    right: 25px;
+
+    color: rgba(112,62,20,.35);
+
+    font-size: 25px;
+}
+
+
+/* =========================================================
+   TÍTULOS DE SECCIÓN
+========================================================= */
+
+.section-title {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 28px;
+}
+
+.section-title h2 {
+    position: relative;
+
+    padding: 13px 28px 11px;
+
+    font-family: 'Rye', Georgia, serif;
+
+    font-size: clamp(25px, 4vw, 38px);
+
+    line-height: 1;
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    color: #f8e4b2;
+
+    background:
+        linear-gradient(
+            145deg,
+            #4b210c,
+            #1c0a04
+        );
+
+    border: 2px solid #c89238;
+
+    box-shadow:
+        0 5px 0 #5c2b0e,
+        0 10px 22px rgba(60,28,7,.25);
+}
+
+.section-title h2::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 4px;
+
+    border: 1px solid rgba(222,174,82,.35);
+
+    pointer-events: none;
+}
+
+.title-decoration {
+    color: #a66b22;
+
+    font-size: 23px;
+}
+
+
+/* =========================================================
+   IMAGEN DE CATEGORÍA
+========================================================= */
+
+.section-image {
+    display: block;
+
+    width: min(440px, 100%);
+
+    height: 225px;
+
+    object-fit: contain;
+
+    margin: 0 auto 32px;
+
+    padding: 15px;
+
+    background:
+        radial-gradient(
+            circle,
+            #fff4dc 0%,
+            #d2ac72 100%
+        );
+
+    border: 3px solid #6a3515;
+
+    outline: 1px solid #c28b34;
+
+    box-shadow:
+        0 6px 0 rgba(83,39,10,.35),
+        0 15px 28px rgba(57,27,7,.2);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.section-image:hover {
+    transform: scale(1.025);
+
+    box-shadow:
+        0 8px 0 rgba(83,39,10,.4),
+        0 20px 35px rgba(57,27,7,.25);
+}
+
+
+/* =========================================================
+   PRODUCTOS
+========================================================= */
+
+.menu-item {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 1fr auto;
+
+    gap: 7px 20px;
+
+    align-items: center;
+
+    width: min(900px, 100%);
+
+    margin: 14px auto;
+
+    padding: 20px 22px 20px 27px;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff8e7,
+            #e6c99b
+        );
+
+    border: 2px solid #94602a;
+
+    box-shadow:
+        0 4px 0 #60300f,
+        0 8px 18px rgba(56,27,7,.13);
+
+    transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        border-color .22s ease;
+}
+
+
+/* franja western */
+
+.menu-item::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 5px;
+
+    background:
+        linear-gradient(
+            #d5a146,
+            #754018
+        );
+}
+
+
+/* esquina decorativa */
+
+.menu-item::after {
+    content: "✦";
+
+    position: absolute;
+
+    right: 12px;
+
+    bottom: 7px;
+
+    color: rgba(104,53,16,.2);
+
+    font-size: 14px;
+}
+
+
+/* hover */
+
+.menu-item:hover {
+    transform: translateY(-4px);
+
+    border-color: #c18a32;
+
+    box-shadow:
+        0 8px 0 #60300f,
+        0 15px 28px rgba(56,27,7,.2);
+}
+
+
+/* =========================================================
+   NOMBRE
+========================================================= */
+
+.menu-item > p:first-child {
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: clamp(19px, 2.3vw, 24px);
+
+    line-height: 1.1;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+
+    color: #32170a;
+}
+
+
+/* =========================================================
+   PRECIO
+========================================================= */
+
+.menu-item > span {
+    white-space: nowrap;
+
+    padding: 8px 13px;
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 21px;
+
+    letter-spacing: 1px;
+
+    color: #fff1cc;
+
+    background:
+        linear-gradient(
+            145deg,
+            #a86820,
+            #60300d
+        );
+
+    border: 2px solid #d9ad5c;
+
+    box-shadow:
+        0 3px 0 #45200a;
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN
+========================================================= */
+
+.menu-item .description {
+    grid-column: 1 / -1;
+
+    margin-top: 4px;
+
+    padding-top: 9px;
+
+    border-top: 1px dashed rgba(103,55,16,.4);
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    line-height: 1.55;
+
+    color: #6b4a2e;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+#food-details-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 5000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(17,7,2,.83);
+
+    backdrop-filter: blur(5px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: .25s ease;
+}
+
+#food-details-overlay.active {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* =========================================================
+   CONTENIDO MODAL
+========================================================= */
+
+#food-details-content {
+    position: relative;
+
+    width: min(620px, 100%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 35px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff4dc,
+            #dfc096
+        );
+
+    border: 4px solid #321609;
+
+    box-shadow:
+        0 0 0 3px #c28b34,
+        0 25px 60px rgba(0,0,0,.55);
+}
+
+
+/* cinta */
+
+.modal-ribbon {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    padding: 7px 18px;
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 15px;
+
+    letter-spacing: 3px;
+
+    color: #f6d98f;
+
+    background: #39170a;
+
+    border: 1px solid #c89238;
+}
+
+
+/* =========================================================
+   IMAGEN MODAL
+========================================================= */
+
+#food-image {
+    display: block;
+
+    width: min(410px, 100%);
+
+    max-height: 330px;
+
+    object-fit: contain;
+
+    margin: 0 auto 20px;
+
+    padding: 10px;
+
+    background: #f8e5bd;
+
+    border: 2px solid #875020;
+}
+
+
+/* =========================================================
+   NOMBRE MODAL
+========================================================= */
+
+#food-name {
+    margin-bottom: 16px;
+
+    font-family: 'Rye', Georgia, serif;
+
+    font-size: clamp(25px, 5vw, 35px);
+
+    line-height: 1.1;
+
+    color: #3a1a09;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   INGREDIENTES
+========================================================= */
+
+#food-ingredients {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    color: #69472a;
+}
+
+
+/* =========================================================
+   PRECIO MODAL
+========================================================= */
+
+.modal-price {
+    display: inline-block;
+
+    margin-top: 5px;
+
+    padding: 8px 18px;
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 25px;
+
+    letter-spacing: 1px;
+
+    color: #fff0c9;
+
+    background:
+        linear-gradient(
+            145deg,
+            #a56820,
+            #5d2c0d
+        );
+
+    border: 2px solid #d9aa55;
+
+    box-shadow:
+        0 4px 0 #47200a;
+}
+
+
+/* =========================================================
+   BOTÓN CERRAR
+========================================================= */
+
+.close-button {
+    position: absolute;
+
+    top: 12px;
+
+    right: 12px;
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    font-size: 29px;
+
+    line-height: 1;
+
+    color: #edcb7c;
+
+    background: #351609;
+
+    border: 2px solid #c38c35;
+
+    transition: .2s ease;
+}
+
+.close-button:hover {
+    color: white;
+
+    background: #8f2718;
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 11px;
+}
+
+::-webkit-scrollbar-track {
+    background: #291108;
+}
+
+::-webkit-scrollbar-thumb {
+    background:
+        linear-gradient(
+            #c7943b,
+            #683512
+        );
+
+    border: 2px solid #291108;
+}
+
+
+/* =========================================================
+   SELECCIÓN DE TEXTO
+========================================================= */
+
+::selection {
+    background: #6a3210;
+
+    color: #ffe4a3;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    body::before {
+        border-width: 3px;
+    }
+
+    .menu-container {
+        width: calc(100% - 12px);
+
+        margin: 12px auto 25px;
+
+        border-width: 3px;
+    }
+
+    .western-header {
+        min-height: 300px;
+
+        padding: 35px 15px 38px;
+    }
+
+    .logo {
+        width: 190px;
+
+        max-height: 115px;
+    }
+
+    .western-header h1 {
+        font-size: 42px;
+    }
+
+    .slogan {
+        font-size: 15px;
+
+        letter-spacing: 3px;
+    }
+
+    .brand-line {
+        gap: 8px;
+    }
+
+    .brand-line b {
+        font-size: 12px;
+
+        letter-spacing: 3px;
+    }
+
+    .top-decoration,
+    .bottom-decoration {
+        font-size: 14px;
+
+        letter-spacing: 4px;
+    }
+
+    .menu-section {
+        padding: 43px 12px 50px;
+    }
+
+    .menu-section::before {
+        left: 12px;
+    }
+
+    .menu-section::after {
+        right: 12px;
+    }
+
+    .section-title {
+        gap: 8px;
+
+        margin-bottom: 23px;
+    }
+
+    .section-title h2 {
+        padding: 11px 15px;
+
+        font-size: 23px;
+    }
+
+    .title-decoration {
+        font-size: 16px;
+    }
+
+    .section-image {
+        height: 180px;
+
+        padding: 10px;
+
+        margin-bottom: 25px;
+    }
+
+    .menu-item {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        padding: 17px 15px 17px 21px;
+    }
+
+    .menu-item > span {
+        justify-self: start;
+
+        font-size: 19px;
+    }
+
+    .menu-item > p:first-child {
+        font-size: 20px;
+    }
+
+    .menu-item .description {
+        font-size: 12px;
+    }
+
+    #food-details-content {
+        padding: 30px 17px 25px;
+    }
+
+    #food-name {
+        font-size: 25px;
+    }
+
+    #food-image {
+        max-height: 250px;
+    }
+}
+
+
+/* =========================================================
+   CELULARES PEQUEÑOS
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .western-header {
+        min-height: 270px;
+    }
+
+    .logo {
+        width: 165px;
+    }
+
+    .western-header h1 {
+        font-size: 35px;
+    }
+
+    .slogan {
+        font-size: 12px;
+
+        letter-spacing: 2px;
+    }
+
+    .section-title h2 {
+        font-size: 19px;
+    }
+
+    .section-image {
+        height: 155px;
+    }
+
+    .menu-item > p:first-child {
+        font-size: 18px;
+    }
+
+    .menu-item > span {
+        font-size: 18px;
+    }
+}
