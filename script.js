@@ -12,15 +12,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Cargar precios desde Supabase
     async function cargarPrecios() {
         try {
-            if (!window.supabase || !window.SUPABASE_URL || !window.SUPABASE_ANON_KEY) {
-                console.error("Falta configurar Supabase.");
-                return;
-            }
+          if (!window.supabase || !window.RANCHO_SUPABASE_CONFIG) {
+    console.error("Falta configurar Supabase.");
+    return;
+}
 
-            const db = window.supabase.createClient(
-                window.SUPABASE_URL,
-                window.SUPABASE_ANON_KEY
-            );
+const db = window.supabase.createClient(
+    window.RANCHO_SUPABASE_CONFIG.url,
+    window.RANCHO_SUPABASE_CONFIG.anonKey
+);
 
             const { data, error } = await db
                 .from("products")
