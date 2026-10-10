@@ -1,24 +1,62 @@
-document.addEventListener("DOMContentLoaded", () => {
 
+document.addEventListener("DOMContentLoaded", async () => {
     const menuItems = document.querySelectorAll(".menu-item");
 
     const overlay = document.getElementById("food-details-overlay");
     const content = document.getElementById("food-details-content");
-
     const foodImage = document.getElementById("food-image");
     const foodName = document.getElementById("food-name");
     const foodIngredients = document.getElementById("food-ingredients");
-
     const closeButton = document.querySelector(".close-button");
 
+    // Cargar precios desde Supabase
+    async function cargarPrecios() {
+        try {
+            if (!window.supabase || !window.SUPABASE_URL || !window.SUPABASE_ANON_KEY) {
+                console.error("Falta configurar Supabase.");
+                return;
+            }
 
-    /* =====================================================
-       ABRIR DETALLES DE LA COMIDA
-       ===================================================== */
+            const db = window.supabase.createClient(
+                window.SUPABASE_URL,
+                window.SUPABASE_ANON_KEY
+            );
 
+            const { data, error } = await db
+                .from("products")
+                .select("id, price")
+                .eq("active", true);
+
+            if (error) throw error;
+
+            data.forEach(producto => {
+                const item = document.querySelector(
+                    `.menu-item[data-product-id="${producto.id}"]`
+                );
+
+                if (!item) {
+                    console.warn("No se encontró en el menú el producto:", producto.id);
+                    return;
+                }
+
+                const priceElement = item.querySelector("span");
+
+                if (priceElement) {
+                    priceElement.textContent = "$" +
+                        Number(producto.price).toLocaleString("es-CO");
+                }
+            });
+        } catch (error) {
+            console.error("Error cargando precios:", error);
+        }
+    }
+
+    await cargarPrecios();
+
+    // Abrir detalles de la comida
     menuItems.forEach(item => {
-
         item.addEventListener("click", () => {
+            if (!overlay || !foodName || !foodIngredients) return;
 
             const nameElement = item.querySelector("p:first-child");
             const descriptionElement = item.querySelector(".description");
@@ -36,130 +74,63 @@ document.addEventListener("DOMContentLoaded", () => {
                 ? priceElement.textContent.trim()
                 : "";
 
-
-            /* Nombre */
-
             foodName.textContent = name;
 
-
-            /* Descripción + precio */
-
             if (price) {
-
                 foodIngredients.innerHTML = `
-                    <strong>${description}</strong>
+                    <strong></strong>
                     <br><br>
-                    <span class="modal-price">${price}</span>
+                    <span class="modal-price"></span>
                 `;
-
+                foodIngredients.querySelector("strong").textContent = description;
+                foodIngredients.querySelector(".modal-price").textContent = price;
             } else {
-
                 foodIngredients.textContent = description;
-
             }
 
-
-            /* =================================================
-               BUSCAR LA IMAGEN DE LA CATEGORÍA
-               ================================================= */
-
             const section = item.closest(".menu-section");
-
             const sectionImage = section
                 ? section.querySelector(".section-image")
                 : null;
 
-
-            if (sectionImage) {
-
-                foodImage.src = sectionImage.src;
-
-                foodImage.alt = name;
-
-                foodImage.style.display = "block";
-
-            } else {
-
-                foodImage.style.display = "none";
-
+            if (foodImage) {
+                if (sectionImage) {
+                    foodImage.src = sectionImage.src;
+                    foodImage.alt = name;
+                    foodImage.style.display = "block";
+                } else {
+                    foodImage.style.display = "none";
+                }
             }
 
-
-            /* =================================================
-               MOSTRAR MODAL
-               ================================================= */
-
             overlay.classList.add("active");
-
             document.body.style.overflow = "hidden";
-
         });
-
     });
 
-
-    /* =====================================================
-       CERRAR MODAL
-       ===================================================== */
-
+    // Cerrar ventana de detalles
     function closeModal() {
-
-        overlay.classList.remove("active");
-
+        if (overlay) overlay.classList.remove("active");
         document.body.style.overflow = "";
-
     }
-
-
-    /* Botón X */
 
     if (closeButton) {
-
         closeButton.addEventListener("click", closeModal);
-
     }
 
+    if (overlay) {
+        overlay.addEventListener("click", event => {
+            if (event.target === overlay) closeModal();
+        });
+    }
 
-    /* Cerrar haciendo clic fuera */
-
-    overlay.addEventListener("click", (event) => {
-
-        if (event.target === overlay) {
-
-            closeModal();
-
-        }
-
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") closeModal();
     });
-
-
-    /* =====================================================
-       CERRAR CON ESC
-       ===================================================== */
-
-    document.addEventListener("keydown", (event) => {
-
-        if (event.key === "Escape") {
-
-            closeModal();
-
-        }
-
-    });
-
-
-    /* =====================================================
-       EVITAR QUE EL CLICK DENTRO DEL MODAL LO CIERRE
-       ===================================================== */
 
     if (content) {
-
-        content.addEventListener("click", (event) => {
-
+        content.addEventListener("click", event => {
             event.stopPropagation();
-
         });
-
     }
-
 });
